@@ -11,4 +11,4 @@
 * cd Node-Todo-API
 * Run ```npm install``` in terminal.
 * Create a environment variable named ```todoPrivateKey```.
-* At last run the project by running command ```npm install``` in terminal.
+* At last run the project by running command ```node index.js``` in terminal.
