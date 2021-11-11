@@ -26,7 +26,7 @@ const todoSchema = new mongoose.Schema({
 
 const Todo = mongoose.model('Todo', todoSchema);
 
-function validateTodo(todo) {
+const validateTodo = (todo) => {
   const schema = {
     task: Joi.string().min(5).max(50).required(),
     detail: Joi.string().min(5).max(255),

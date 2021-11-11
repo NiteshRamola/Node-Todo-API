@@ -177,6 +177,156 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get All Completed Todo's",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYzk4NmQwNzhiMWEwZjI5NWE4NmQiLCJpYXQiOjE2MzY1NTEwNjV9.nNeVv25HWmUs6IMAvUngUqzquafBSo-TWmQxSyzRPJI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/todo/completed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"todo",
+						"completed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Pending Todo's",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYzk4NmQwNzhiMWEwZjI5NWE4NmQiLCJpYXQiOjE2MzY1NTEwNjV9.nNeVv25HWmUs6IMAvUngUqzquafBSo-TWmQxSyzRPJI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/todo/pending",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"todo",
+						"pending"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify/Update Todo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYmE5MDY2YzJmNjBmZjY1Mzg3YzQiLCJpYXQiOjE2MzY2MTQ0MzR9.H-KtcKCAxb46nGvQt9VkbGtPyD81qfItWMmXN_EL9Mo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"task\": \"Work todo\",\n    \"detail\": \"Working on it \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/todo/618bc9d8d078b1a0f295a871",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"todo",
+						"618bc9d8d078b1a0f295a871"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Task as completed/uncomplete",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYzk4NmQwNzhiMWEwZjI5NWE4NmQiLCJpYXQiOjE2MzY1NTEwNjV9.nNeVv25HWmUs6IMAvUngUqzquafBSo-TWmQxSyzRPJI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/todo/618bc9d8d078b1a0f295a871",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"todo",
+						"618bc9d8d078b1a0f295a871"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -7,11 +7,7 @@ const express = require('express');
 const Joi = require('joi')
 const router = express.Router();
 
-// router.get('/me', auth, async (req, res) => {
-//   const user = await User.findById(req.user._id).select('-password');
-//   res.send(user);
-// });
-
+// Login the user
 router.post('/login', async (req, res) => {
   const { error } = validateUser(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
@@ -26,6 +22,7 @@ router.post('/login', async (req, res) => {
   res.send(token);
 });
 
+// Create a new user
 router.post('/register', async (req, res) => {
   const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
@@ -47,7 +44,7 @@ router.post('/register', async (req, res) => {
   res.header('x-auth-token', token).send({id: user._id, name: user.name, email: user.email});
 });
 
-function validateUser(req){
+const validateUser = (req) => {
   const schema = {
     email: Joi.string().required().email(),
     password: Joi.string().required(),
