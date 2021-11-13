@@ -1,23 +1,38 @@
-const express = require('express');
-const config = require('config');
-const mongoose = require('mongoose');
-const auth = require('./routes/auth');
-const todo = require('./routes/todo');
+require("express-async-errors");
+const express = require("express");
+const config = require("config");
+const mongoose = require("mongoose");
+const auth = require("./routes/auth");
+const todo = require("./routes/todo");
+const errors = require("./middleware/errors");
 
 const app = express();
 app.use(express.json());
 
-if(!config.get('jwtPrivateKey')){
+if (!config.get("jwtPrivateKey")) {
   console.error("JWT Private Key is not defined");
   process.exit(1);
 }
 
-app.use('/api/auth', auth);
-app.use('/api/todo', todo);
+process.on("uncaughtException", (e) => {
+  console.log(e.message);
+});
 
-mongoose.connect('mongodb://localhost/todo')
-  .then(() => console.log("Connected to MongoDB..."))
-  .catch(err => console.error("Something went wrong could not connect to MongoDB..."));
+process.on("unhandledRejection", (e) => {
+  console.log(e.message);
+});
+
+app.use(errors);
+app.use("/api/auth", auth);
+app.use("/api/todo", todo);
+
+mongoose
+  .connect(config.get("db"))
+  .then(() => console.log(`Connected to ${config.get("db")}...`));
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+const server = app.listen(port, () =>
+  console.log(`Listening on port ${port}...`)
+);
+
+module.exports = server;
