@@ -2,9 +2,9 @@ const { Todo, validate } = require("../models/todo");
 const mongoose = require("mongoose");
 const express = require("express");
 const auth = require("../middleware/auth");
-const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const router = express.Router();
+const jwtDecoder = require("../middleware/jwtDecoder");
 const validateObjectId = require("../middleware/validateObjectId");
 
 // Get All Todos
@@ -101,11 +101,6 @@ router.patch("/:id", [auth, validateObjectId], async (req, res) => {
 function validateTodo(todo) {
   const schema = {};
   return Joi.validate(todo, schema);
-}
-
-// JWT Decoder function
-function jwtDecoder(token) {
-  return jwt.decode(token);
 }
 
 module.exports = router;
