@@ -5,9 +5,11 @@ const mongoose = require("mongoose");
 const auth = require("./routes/auth");
 const todo = require("./routes/todo");
 const errors = require("./middleware/errors");
+var cors = require("cors");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 if (!config.get("jwtPrivateKey")) {
   console.error("JWT Private Key is not defined");
