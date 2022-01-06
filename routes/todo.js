@@ -31,7 +31,7 @@ router.get("/pending", auth, async (req, res) => {
 // Create New Todos
 router.post("/", [auth], async (req, res) => {
   const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({ error: error.details[0].message });
   const data = jwtDecoder(req.header("x-auth-token"));
 
   let todo = new Todo({
@@ -50,10 +50,14 @@ router.get("/:id", [auth, validateObjectId], async (req, res) => {
   const todo = await Todo.findById(req.params.id);
 
   if (!todo)
-    return res.status(404).send("The task with the given ID was not found.");
+    return res
+      .status(404)
+      .send({ error: "The task with the given ID was not found." });
 
   if (data._id !== todo.user.toString())
-    return res.status(403).send("You are not authorized to view this task");
+    return res
+      .status(403)
+      .send({ error: "You are not authorized to view this task" });
 
   res.send(todo);
 });
@@ -61,15 +65,19 @@ router.get("/:id", [auth, validateObjectId], async (req, res) => {
 // Update Todo
 router.put("/:id", [auth, validateObjectId], async (req, res) => {
   const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({ error: error.details[0].message });
 
   const data = jwtDecoder(req.header("x-auth-token"));
   const todo = await Todo.findById(req.params.id);
 
   if (!todo)
-    return res.status(404).send("The task with the given ID was not found.");
+    return res
+      .status(404)
+      .send({ error: "The task with the given ID was not found." });
   if (data._id !== todo.user.toString())
-    return res.status(403).send("You are not authorized to update this task.");
+    return res
+      .status(403)
+      .send({ error: "You are not authorized to update this task." });
 
   todo.task = req.body.task;
   todo.detail = req.body.detail;
@@ -81,15 +89,17 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
 // Mark task as complete/uncomplete
 router.patch("/:id", [auth, validateObjectId], async (req, res) => {
   const { error } = validateTodo(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({ error: error.details[0].message });
 
   const data = jwtDecoder(req.header("x-auth-token"));
   const todo = await Todo.findById(req.params.id);
 
   if (!todo)
-    return res.status(404).send("The task with the given ID was not found.");
+    return res
+      .status(404)
+      .send({ error: "The task with the given ID was not found." });
   if (data._id !== todo.user.toString())
-    return res.status(403).send("You are not authorized.");
+    return res.status(403).send({ error: "You are not authorized." });
 
   todo.isCompleted = !todo.isCompleted;
   todo.save();

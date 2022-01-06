@@ -10,26 +10,30 @@ const router = express.Router();
 // Login the user
 router.post("/login", async (req, res) => {
   const { error } = validateUser(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({ error: error.details[0].message });
 
   let user = await User.findOne({ email: req.body.email });
-  if (!user) return res.status(400).send("Invalid email or password");
+  if (!user)
+    return res.status(400).send({ error: "Invalid email or password" });
 
   const validPassword = await bcrypt.compare(req.body.password, user.password);
-  if (!validPassword) return res.status(400).send("Invalid email or password");
+  if (!validPassword)
+    return res.status(400).send({ error: "Invalid email or password" });
 
   const token = user.generateAuthToken();
-  res.send(token);
+  res.send({ jwtToken: token });
 });
 
 // Create a new user
 router.post("/register", async (req, res) => {
   const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({ error: error.details[0].message });
 
   let user = await User.findOne({ email: req.body.email });
   if (user)
-    return res.status(400).send("User with this email already registered");
+    return res
+      .status(400)
+      .send({ error: "User with this email already registered" });
 
   user = new User({
     name: req.body.name,

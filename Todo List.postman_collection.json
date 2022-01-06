@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"ramola\",\n    \"email\": \"ramola@mail.com\",\n    \"password\": \"ramola\"\n}",
+					"raw": "{\n    \"name\":\"ramola\",\n    \"email\": \"ramofla@maisl.com\",\n    \"password\": \"ramola\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -33,7 +33,140 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Already Registered",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"ramola\",\n    \"email\": \"ramola@maisl.com\",\n    \"password\": \"ramola\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-xNyrmmMPFDPwmQNe9vQ2KFg9kyA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:38:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"User with this email already registered\"\n}"
+				},
+				{
+					"name": "Register User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"ramola\",\n    \"email\": \"ramofla@maisl.com\",\n    \"password\": \"ramola\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "x-auth-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2Yjk5YmM2MmViNDJlMDliNjliMWIiLCJpYXQiOjE2NDE0NjIxNzF9.H2xOaGtAWbdIx7RvfSi0r06CvJg7mdY3TUa6XovhDqI"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4d-1w1hdMVTrHg73RomCByETjb7lEs\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:42:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"61d6b99bc62eb42e09b69b1b\",\n    \"name\": \"ramola\",\n    \"email\": \"ramofla@maisl.com\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Login User",
@@ -42,7 +175,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"nitesh@mail.com\",\n    \"password\": \"nitesh\"\n}",
+					"raw": "{\n    \"email\": \"ramola@misl.com\",\n    \"password\": \"ramola\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -63,7 +196,136 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Login User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ramola@maisl.com\",\n    \"password\": \"ramola\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "164"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-09A99jNFhBTrV9XDuPikKP3gAxI\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:38:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jwtToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE4OTV9._wHjgjV9yisrWd2vPDOSMZjKghuqz9-cVBxoCRNKPSg\"\n}"
+				},
+				{
+					"name": "Invalid username or password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ramola@misl.com\",\n    \"password\": \"ramola\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25-3YG4LRpklFolV4uVOnUIRm2hZA0\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:43:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Invalid email or password\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Create Todo",
@@ -72,7 +334,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYzk4NmQwNzhiMWEwZjI5NWE4NmQiLCJpYXQiOjE2MzY1NTEwNjV9.nNeVv25HWmUs6IMAvUngUqzquafBSo-TWmQxSyzRPJI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
 						"type": "text"
 					}
 				],
@@ -98,7 +360,216 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Create Todo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": \"Office work\",\n    \"detail\": \"Complete all office work\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/todo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "153"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"99-vZJBHQqygswufRixB4omFdgQ33Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:39:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"task\": \"Office work\",\n    \"detail\": \"Complete all office work\",\n    \"user\": \"61d6b6be584bdb41f1ffc7e8\",\n    \"isCompleted\": false,\n    \"_id\": \"61d6b8ecc62eb42e09b69b12\",\n    \"__v\": 0\n}"
+				},
+				{
+					"name": "Without Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": \"Office work\",\n    \"detail\": \"Complete all office work\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/todo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "44"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2c-mCbShmnq4W8nhzWrXw58BhQqheg\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:46:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Access Denied. No token provided\"\n}"
+				},
+				{
+					"name": "Invalid Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Ye",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": \"Office work\",\n    \"detail\": \"Complete all office work\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/todo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-lxvLk+IJE1H8T7Zqc8oA2eLUjTc\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:47:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Access Denied. Invalid Token\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Get All Todo's",
@@ -110,7 +581,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYzk4NmQwNzhiMWEwZjI5NWE4NmQiLCJpYXQiOjE2MzY1NTEwNjV9.nNeVv25HWmUs6IMAvUngUqzquafBSo-TWmQxSyzRPJI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
 						"type": "text"
 					}
 				],
@@ -137,7 +608,78 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get All Todo's",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/todo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "296"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"128-8dSGqxR0jjQB03dnrd415h8y2Jw\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:38:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"61d6b701584bdb41f1ffc7eb\",\n        \"task\": \"Work todo\",\n        \"detail\": \"Working on it \",\n        \"user\": \"61d6b6be584bdb41f1ffc7e8\",\n        \"isCompleted\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61d6b88dc62eb42e09b69b08\",\n        \"task\": \"Office work\",\n        \"detail\": \"Complete all office work\",\n        \"user\": \"61d6b6be584bdb41f1ffc7e8\",\n        \"isCompleted\": false,\n        \"__v\": 0\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Get Todo By Id",
@@ -149,7 +691,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYzk4NmQwNzhiMWEwZjI5NWE4NmQiLCJpYXQiOjE2MzY1NTEwNjV9.nNeVv25HWmUs6IMAvUngUqzquafBSo-TWmQxSyzRPJI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
 						"type": "text"
 					}
 				],
@@ -163,7 +705,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/todo/618bc9d8d078b1a0f295a871",
+					"raw": "http://localhost:3000/api/todo/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -172,11 +714,94 @@
 					"path": [
 						"api",
 						"todo",
-						"618bc9d8d078b1a0f295a871"
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "61d6b701584bdb41f1ffc7eb"
+						}
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get Todo By Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/todo/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "61d6b701584bdb41f1ffc7eb"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "140"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8c-p91BMSfRWvxjV3kdfW+BlpzsJZA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:38:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"61d6b701584bdb41f1ffc7eb\",\n    \"task\": \"Work todo\",\n    \"detail\": \"Working on it \",\n    \"user\": \"61d6b6be584bdb41f1ffc7e8\",\n    \"isCompleted\": true,\n    \"__v\": 0\n}"
+				}
+			]
 		},
 		{
 			"name": "Get All Completed Todo's",
@@ -188,7 +813,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYzk4NmQwNzhiMWEwZjI5NWE4NmQiLCJpYXQiOjE2MzY1NTEwNjV9.nNeVv25HWmUs6IMAvUngUqzquafBSo-TWmQxSyzRPJI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
 						"type": "text"
 					}
 				],
@@ -215,7 +840,78 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get All Completed Todo's",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/todo/completed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo",
+								"completed"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8e-sKsk6nFDd90vinW9Ri3d0cXMG4U\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:40:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"61d6b701584bdb41f1ffc7eb\",\n        \"task\": \"Work todo\",\n        \"detail\": \"Working on it \",\n        \"user\": \"61d6b6be584bdb41f1ffc7e8\",\n        \"isCompleted\": true,\n        \"__v\": 0\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Get All Pending Todo's",
@@ -227,7 +923,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYzk4NmQwNzhiMWEwZjI5NWE4NmQiLCJpYXQiOjE2MzY1NTEwNjV9.nNeVv25HWmUs6IMAvUngUqzquafBSo-TWmQxSyzRPJI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
 						"type": "text"
 					}
 				],
@@ -254,7 +950,78 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get All Pending Todo's",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/todo/pending",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo",
+								"pending"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "297"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"129-dYASKzaMFlp2zi+JwQ6jBwf8th8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:38:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"61d6b701584bdb41f1ffc7eb\",\n        \"task\": \"Work todo\",\n        \"detail\": \"Working on it \",\n        \"user\": \"61d6b6be584bdb41f1ffc7e8\",\n        \"isCompleted\": false,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61d6b88dc62eb42e09b69b08\",\n        \"task\": \"Office work\",\n        \"detail\": \"Complete all office work\",\n        \"user\": \"61d6b6be584bdb41f1ffc7e8\",\n        \"isCompleted\": false,\n        \"__v\": 0\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Modify/Update Todo",
@@ -263,7 +1030,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYmE5MDY2YzJmNjBmZjY1Mzg3YzQiLCJpYXQiOjE2MzY2MTQ0MzR9.H-KtcKCAxb46nGvQt9VkbGtPyD81qfItWMmXN_EL9Mo",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
 						"type": "text"
 					}
 				],
@@ -277,7 +1044,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/todo/618bc9d8d078b1a0f295a871",
+					"raw": "http://localhost:3000/api/todo/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -286,11 +1053,94 @@
 					"path": [
 						"api",
 						"todo",
-						"618bc9d8d078b1a0f295a871"
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "61d6b701584bdb41f1ffc7eb"
+						}
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Modify/Update Todo",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": \"Work todo\",\n    \"detail\": \"Working on it \"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/todo/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "61d6b701584bdb41f1ffc7eb"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "141"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8d-ErNThBvZZEGixeY2FkkERYQVZdQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:40:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"61d6b701584bdb41f1ffc7eb\",\n    \"task\": \"Work todo\",\n    \"detail\": \"Working on it \",\n    \"user\": \"61d6b6be584bdb41f1ffc7e8\",\n    \"isCompleted\": false,\n    \"__v\": 0\n}"
+				}
+			]
 		},
 		{
 			"name": "Set Task as completed/uncomplete",
@@ -299,7 +1149,7 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiYzk4NmQwNzhiMWEwZjI5NWE4NmQiLCJpYXQiOjE2MzY1NTEwNjV9.nNeVv25HWmUs6IMAvUngUqzquafBSo-TWmQxSyzRPJI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
 						"type": "text"
 					}
 				],
@@ -313,7 +1163,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/todo/618bc9d8d078b1a0f295a871",
+					"raw": "http://localhost:3000/api/todo/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -322,11 +1172,94 @@
 					"path": [
 						"api",
 						"todo",
-						"618bc9d8d078b1a0f295a871"
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "61d6b701584bdb41f1ffc7eb"
+						}
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Set Task as completed/uncomplete",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ2YjZiZTU4NGJkYjQxZjFmZmM3ZTgiLCJpYXQiOjE2NDE0NjE0NjZ9.DJdub3yGUNLTZOKuXjTup0RSkLtRHfn7HAzOg34m5_Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/todo/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "61d6b701584bdb41f1ffc7eb"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "140"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8c-p91BMSfRWvxjV3kdfW+BlpzsJZA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jan 2022 09:40:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"61d6b701584bdb41f1ffc7eb\",\n    \"task\": \"Work todo\",\n    \"detail\": \"Working on it \",\n    \"user\": \"61d6b6be584bdb41f1ffc7e8\",\n    \"isCompleted\": true,\n    \"__v\": 0\n}"
+				}
+			]
 		}
 	]
 }
