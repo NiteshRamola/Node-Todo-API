@@ -1,5 +1,6 @@
 const { User, validate } = require("../models/user");
 const { OAuth2Client } = require("google-auth-library");
+const fetch = require("node-fetch");
 const mongoose = require("mongoose");
 const config = require("config");
 const bcrypt = require("bcrypt");
@@ -86,6 +87,41 @@ router.post("/google", (req, res) => {
           const token = user.generateAuthToken();
           res.send({ jwtToken: token });
         }
+      }
+    });
+});
+
+// Login/Register with Facebook
+
+router.post("/facebook", (req, res) => {
+  const { userID, accessToken } = req.body;
+  let urlGraphFacebook = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`;
+
+  fetch(urlGraphFacebook, {
+    method: "GET",
+  })
+    .then((response = response.json()))
+    .then((response) => {
+      const { email, name } = response;
+
+      let user = await User.findOne({ email: email });
+      if (user) {
+        const token = user.generateAuthToken();
+        res.send({ jwtToken: token });
+      } else {
+        let password = Math.random().toString(36).slice(2);
+        user = new User({
+          name,
+          email,
+          password,
+        });
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(user.password, salt);
+
+        await user.save();
+
+        const token = user.generateAuthToken();
+        res.send({ jwtToken: token });
       }
     });
 });
