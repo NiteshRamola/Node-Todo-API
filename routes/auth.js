@@ -1,6 +1,6 @@
+const fetch = require("node-fetch");
 const { User, validate } = require("../models/user");
 const { OAuth2Client } = require("google-auth-library");
-const fetch = require("node-fetch");
 const mongoose = require("mongoose");
 const config = require("config");
 const bcrypt = require("bcrypt");
@@ -101,7 +101,7 @@ router.post("/facebook", (req, res) => {
     method: "GET",
   })
     .then((response = response.json()))
-    .then((response) => {
+    .then(async (response) => {
       const { email, name } = response;
 
       let user = await User.findOne({ email: email });
