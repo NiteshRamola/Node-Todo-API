@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const express = require("express");
 const Joi = require("joi");
+const { response } = require("express");
 const router = express.Router();
 
 // Login the user
@@ -50,6 +51,43 @@ router.post("/register", async (req, res) => {
   res
     .header("x-auth-token", token)
     .send({ id: user._id, name: user.name, email: user.email });
+});
+
+// Register/Login with Google
+
+const clientId =
+  "748780046331-8o6fsppq677ba0pqhaggv7ds55h5kon6.apps.googleusercontent.com";
+const client = new OAuth2Client(clientId);
+
+router.post("/google", (req, res) => {
+  const { tokenId } = req.body;
+
+  client
+    .verifyIdToken({ idToken: tokenId, audience: clientId })
+    .then(async (response) => {
+      const { email_verified, name, email } = response.payload;
+      if (email_verified) {
+        let user = await User.findOne({ email: email });
+        if (user) {
+          const token = user.generateAuthToken();
+          res.send({ jwtToken: token });
+        } else {
+          let password = Math.random().toString(36).slice(2);
+          user = new User({
+            name,
+            email,
+            password,
+          });
+          const salt = await bcrypt.genSalt(10);
+          user.password = await bcrypt.hash(user.password, salt);
+
+          await user.save();
+
+          const token = user.generateAuthToken();
+          res.send({ jwtToken: token });
+        }
+      }
+    });
 });
 
 const validateUser = (req) => {
