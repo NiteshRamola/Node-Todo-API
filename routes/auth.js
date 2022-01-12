@@ -1,4 +1,3 @@
-const fetch = require("node-fetch");
 const { User, validate } = require("../models/user");
 const { OAuth2Client } = require("google-auth-library");
 const mongoose = require("mongoose");
@@ -6,6 +5,7 @@ const config = require("config");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const express = require("express");
+const axios = require("axios");
 const Joi = require("joi");
 const { response } = require("express");
 const router = express.Router();
@@ -93,17 +93,14 @@ router.post("/google", (req, res) => {
 
 // Login/Register with Facebook
 
-router.post("/facebook", (req, res) => {
+router.post("/facebook", async (req, res) => {
   const { userID, accessToken } = req.body;
   let urlGraphFacebook = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`;
 
-  fetch(urlGraphFacebook, {
-    method: "GET",
-  })
-    .then((response = response.json()))
+  await axios
+    .get(urlGraphFacebook)
     .then(async (response) => {
-      const { email, name } = response;
-
+      const { email, name } = response.data;
       let user = await User.findOne({ email: email });
       if (user) {
         const token = user.generateAuthToken();
@@ -123,6 +120,9 @@ router.post("/facebook", (req, res) => {
         const token = user.generateAuthToken();
         res.send({ jwtToken: token });
       }
+    })
+    .catch((error) => {
+      res.send({ error: "Something went wrong" });
     });
 });
 

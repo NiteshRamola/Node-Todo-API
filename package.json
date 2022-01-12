@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
     "config": "^3.3.6",
     "cors": "^2.8.5",
@@ -18,8 +19,7 @@
     "google-auth-library": "^7.11.0",
     "joi": "^13.1.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.12",
-    "node-fetch": "^2.6.6"
+    "mongoose": "^6.0.12"
   },
   "devDependencies": {
     "jest": "^27.3.1",
